@@ -22,8 +22,11 @@ export function ReportCard({
 }) {
   const router = useRouter();
   const convex = useConvex();
+  // @typescript-eslint/no-explicit-any
   const [student, setStudent] = useState<any | null>(null);
+  // @typescript-eslint/no-explicit-any
   const [grades, setGrades] = useState<any | null>(null);
+  // @typescript-eslint/no-explicit-any
   const [subjects, setSubjects] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -68,7 +71,11 @@ export function ReportCard({
     if (!grades || !grades.grades || grades.grades.length === 0) return "0.00";
 
     const totalScore = grades.grades.reduce(
-      (sum: number, grade: any) => sum + grade.score,
+      (
+        sum: number,
+        // @typescript-eslint/no-explicit-any
+        grade: any
+      ) => sum + grade.score,
       0
     );
     return (totalScore / grades.grades.length).toFixed(2);
@@ -159,21 +166,26 @@ export function ReportCard({
                   </tr>
                 </thead>
                 <tbody>
-                  {grades.grades.map((grade: any) => {
-                    const subject = subjects.find(
-                      (s) => s._id === grade.subjectId
-                    );
-                    return (
-                      <tr key={grade.subjectId} className="border-b">
-                        <td className="py-2">
-                          {subject ? subject.name : "Unknown Subject"}
-                        </td>
-                        <td className="py-2 text-center">{grade.score}</td>
-                        <td className="py-2 text-center">{grade.grade}</td>
-                        <td className="py-2">{grade.remarks || "-"}</td>
-                      </tr>
-                    );
-                  })}
+                  {grades.grades.map(
+                    (
+                      // @typescript-eslint/no-explicit-any
+                      grade: any
+                    ) => {
+                      const subject = subjects.find(
+                        (s) => s._id === grade.subjectId
+                      );
+                      return (
+                        <tr key={grade.subjectId} className="border-b">
+                          <td className="py-2">
+                            {subject ? subject.name : "Unknown Subject"}
+                          </td>
+                          <td className="py-2 text-center">{grade.score}</td>
+                          <td className="py-2 text-center">{grade.grade}</td>
+                          <td className="py-2">{grade.remarks || "-"}</td>
+                        </tr>
+                      );
+                    }
+                  )}
                   <tr className="border-b font-semibold">
                     <td className="py-2">Average</td>
                     <td className="py-2 text-center">{calculateAverage()}</td>

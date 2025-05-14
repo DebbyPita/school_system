@@ -68,13 +68,17 @@ type ClearanceItemFormValues = z.infer<typeof clearanceItemFormSchema>;
 
 export function ClearanceManagement() {
   const convex = useConvex();
+  // @typescript-eslint/no-explicit-any
   const [departments, setDepartments] = useState<any[]>([]);
+  // @typescript-eslint/no-explicit-any
   const [clearanceItems, setClearanceItems] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDepartmentDialogOpen, setIsDepartmentDialogOpen] = useState(false);
   const [isItemDialogOpen, setIsItemDialogOpen] = useState(false);
+  // @typescript-eslint/no-explicit-any
   const [editingDepartment, setEditingDepartment] = useState<any | null>(null);
+  // @typescript-eslint/no-explicit-any
   const [editingItem, setEditingItem] = useState<any | null>(null);
   const [activeTab, setActiveTab] = useState("departments");
 
@@ -236,7 +240,10 @@ export function ClearanceManagement() {
     }
   }
 
-  function handleEditDepartment(department: any) {
+  function handleEditDepartment(
+    // @typescript-eslint/no-explicit-any
+    department: any
+  ) {
     setEditingDepartment(department);
     setIsDepartmentDialogOpen(true);
   }
@@ -246,7 +253,10 @@ export function ClearanceManagement() {
     setIsDepartmentDialogOpen(true);
   }
 
-  function handleEditItem(item: any) {
+  function handleEditItem(
+    // @typescript-eslint/no-explicit-any
+    item: any
+  ) {
     setEditingItem(item);
     setIsItemDialogOpen(true);
   }

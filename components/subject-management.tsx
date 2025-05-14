@@ -64,10 +64,12 @@ type SubjectFormValues = z.infer<typeof subjectFormSchema>;
 
 export function SubjectManagement() {
   const convex = useConvex();
+  // @typescript-eslint/no-explicit-any
   const [subjects, setSubjects] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  // @typescript-eslint/no-explicit-any
   const [editingSubject, setEditingSubject] = useState<any | null>(null);
 
   const form = useForm<SubjectFormValues>({
@@ -156,7 +158,10 @@ export function SubjectManagement() {
     }
   }
 
-  function handleEdit(subject: any) {
+  function handleEdit(
+    // @typescript-eslint/no-explicit-any
+    subject: any
+  ) {
     setEditingSubject(subject);
     setIsDialogOpen(true);
   }

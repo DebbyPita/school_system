@@ -15,7 +15,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Loader2, ArrowLeft, FileText, Printer, PenSquare } from "lucide-react";
+import { Loader2, ArrowLeft, FileText, Printer } from "lucide-react";
 import { Id } from "@/convex/_generated/dataModel";
 
 export function StudentProfile({ studentId }: { studentId: string }) {
@@ -104,19 +104,28 @@ export function StudentProfile({ studentId }: { studentId: string }) {
                   </Button>
                 </Link> */}
                 <Link href={`/students/${studentId}/report-card`}>
-                  <Button variant="outline" className="w-full justify-start text-green-500">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start text-green-500"
+                  >
                     <FileText className="mr-2 h-4 w-4" />
                     Generate Report Card
                   </Button>
                 </Link>
                 <Link href={`/students/${studentId}/id-card`}>
-                  <Button variant="outline" className="w-full justify-start text-green-500">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start text-green-500"
+                  >
                     <Printer className="mr-2 h-4 w-4" />
                     Print ID Card
                   </Button>
                 </Link>
                 <Link href={`/students/${studentId}/clearance`}>
-                  <Button variant="outline" className="w-full justify-start text-green-500">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start text-green-500"
+                  >
                     <FileText className="mr-2 h-4 w-4" />
                     Clearance Form
                   </Button>
@@ -212,7 +221,7 @@ export function StudentProfile({ studentId }: { studentId: string }) {
                 <CardHeader>
                   <CardTitle>Academic Information</CardTitle>
                   <CardDescription>
-                    Student's academic records, grades, and performance.
+                    Student{"'"}s academic records, grades, and performance.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -238,7 +247,7 @@ export function StudentProfile({ studentId }: { studentId: string }) {
                 <CardHeader>
                   <CardTitle>Attendance Records</CardTitle>
                   <CardDescription>
-                    Student's attendance history and statistics.
+                    Student{"'"}s attendance history and statistics.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

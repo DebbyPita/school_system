@@ -119,9 +119,12 @@ export function GradeManagement() {
   const [subjects, setSubjects] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // @typescript-eslint/no-explicit-any
   const [existingGrades, setExistingGrades] = useState<any | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  // @typescript-eslint/no-explicit-any
   const [filteredStudents, setFilteredStudents] = useState<any[]>([]);
+  // @typescript-eslint/no-explicit-any
   const [gradeValues, setGradeValues] = useState<any[]>([]);
 
   const form = useForm<GradeFormValues>({
@@ -197,7 +200,9 @@ export function GradeManagement() {
         // Initialize grades for all subjects
         const initialGrades = subjects.map((subject) => {
           const existingGrade = grades.grades.find(
-            (g: any) => g.subjectId === subject._id
+            (
+              // @typescript-eslint/no-explicit-any
+              g: any) => g.subjectId === subject._id
           );
 
           return {

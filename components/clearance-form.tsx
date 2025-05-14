@@ -14,8 +14,11 @@ import { Id } from "@/convex/_generated/dataModel";
 export function ClearanceForm({ studentId }: { studentId: string }) {
   const router = useRouter();
   const convex = useConvex();
+  // @typescript-eslint/no-explicit-any
   const [student, setStudent] = useState<any | null>(null);
+  // @typescript-eslint/no-explicit-any
   const [clearance, setClearance] = useState<any | null>(null);
+  // @typescript-eslint/no-explicit-any
   const [departments, setDepartments] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,6 +61,7 @@ export function ClearanceForm({ studentId }: { studentId: string }) {
       departments.length > 0 &&
       departments.every((dept) => {
         const deptClearance = clearance.departmentClearances.find(
+          // @typescript-eslint/no-explicit-any
           (dc: any) => dc.departmentId === dept._id
         );
         return deptClearance && deptClearance.status === "cleared";
@@ -69,7 +73,10 @@ export function ClearanceForm({ studentId }: { studentId: string }) {
     if (!clearance) return null;
 
     return clearance.departmentClearances.find(
-      (dc: any) => dc.departmentId === departmentId
+      (
+        // @typescript-eslint/no-explicit-any
+        dc: any
+      ) => dc.departmentId === departmentId
     );
   }
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Check, Loader2, Search, X } from "lucide-react";
 
@@ -29,17 +28,23 @@ import { useConvex } from "convex/react";
 import { api } from "@/convex/_generated/api";
 
 export function StudentClearanceManagement() {
-  const router = useRouter();
   const convex = useConvex();
+  // @typescript-eslint/no-explicit-any
   const [students, setStudents] = useState<any[]>([]);
+  // @typescript-eslint/no-explicit-any
   const [departments, setDepartments] = useState<any[]>([]);
+  // @typescript-eslint/no-explicit-any
   const [clearanceItems, setClearanceItems] = useState<any[]>([]);
+  // @typescript-eslint/no-explicit-any
   const [studentClearances, setStudentClearances] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  // @typescript-eslint/no-explicit-any
   const [filteredStudents, setFilteredStudents] = useState<any[]>([]);
+  // @typescript-eslint/no-explicit-any
   const [selectedStudent, setSelectedStudent] = useState<any | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  // @typescript-eslint/no-explicit-any
   const [processingDepartment, setProcessingDepartment] = useState<any | null>(
     null
   );
@@ -94,11 +99,19 @@ export function StudentClearanceManagement() {
     }
   }
 
-  function handleViewClearance(student: any) {
+  function handleViewClearance(
+    // @typescript-eslint/no-explicit-any
+    student: any
+  ) {
     setSelectedStudent(student);
   }
 
-  function handleProcessClearance(student: any, department: any) {
+  function handleProcessClearance(
+    // @typescript-eslint/no-explicit-any
+    student: any,
+    // @typescript-eslint/no-explicit-any
+    department: any
+  ) {
     console.log(
       "Processing clearance for:",
       student.firstName,
@@ -136,7 +149,10 @@ export function StudentClearanceManagement() {
         const departmentClearances =
           existingClearance.departmentClearances || [];
         const departmentIndex = departmentClearances.findIndex(
-          (dc: any) => dc.departmentId === processingDepartment._id
+          (
+            // @typescript-eslint/no-explicit-any
+            dc: any
+          ) => dc.departmentId === processingDepartment._id
         );
 
         const updatedDepartmentClearances = [...departmentClearances];
@@ -206,7 +222,10 @@ export function StudentClearanceManagement() {
     if (!clearance || !clearance.departmentClearances) return null;
 
     const departmentClearance = clearance.departmentClearances.find(
-      (dc: any) => dc.departmentId === departmentId
+      (
+        // @typescript-eslint/no-explicit-any
+        dc: any
+      ) => dc.departmentId === departmentId
     );
     return departmentClearance;
   }
@@ -220,7 +239,10 @@ export function StudentClearanceManagement() {
       departments.length > 0 &&
       departments.every((dept) => {
         const deptClearance = clearance.departmentClearances.find(
-          (dc: any) => dc.departmentId === dept._id
+          (
+            // @typescript-eslint/no-explicit-any
+            dc: any
+          ) => dc.departmentId === dept._id
         );
         return deptClearance && deptClearance.status === "cleared";
       })
@@ -472,7 +494,10 @@ export function StudentClearanceManagement() {
                   );
                   const clearedDepartments = clearance
                     ? clearance.departmentClearances.filter(
-                        (dc: any) => dc.status === "cleared"
+                        (
+                          // @typescript-eslint/no-explicit-any
+                          dc: any
+                        ) => dc.status === "cleared"
                       ).length
                     : 0;
 
